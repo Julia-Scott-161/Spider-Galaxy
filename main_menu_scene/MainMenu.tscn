@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b7w0d0p04enqm"]
+
+[ext_resource type="Script" uid="uid://cbxt4w23hxgit" path="res://main_menu_scene/MainMenu.gd" id="1_eybmd"]
+[ext_resource type="PackedScene" uid="uid://cy1dl82p1rbe" path="res://main_menu_scene/controls_scene/Controls.tscn" id="2_xd0fx"]
+
+[sub_resource type="Gradient" id="Gradient_crk2p"]
+colors = PackedColorArray(0.78431374, 1, 1, 1, 0, 0, 0, 0.54901963)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_thg84"]
+gradient = SubResource("Gradient_crk2p")
+width = 1152
+height = 648
+fill = 1
+fill_from = Vector2(0.5, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uq3bu"]
+font_size = 48
+
+[node name="MainMenu" type="Node3D" unique_id=1307353137]
+script = ExtResource("1_eybmd")
+
+[node name="MainMenuCanvas" type="CanvasLayer" parent="." unique_id=1471808709]
+
+[node name="MainMenuControl" type="Control" parent="MainMenuCanvas" unique_id=2040946925]
+custom_minimum_size = Vector2(1152, 648)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MainMenuBackground" type="TextureRect" parent="MainMenuCanvas/MainMenuControl" unique_id=390871325]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("GradientTexture2D_thg84")
+
+[node name="MainMenuOptions" type="VBoxContainer" parent="MainMenuCanvas/MainMenuControl" unique_id=923840533]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameTitle" type="Label" parent="MainMenuCanvas/MainMenuControl/MainMenuOptions" unique_id=511976233]
+layout_mode = 2
+text = "Game Name Placeholder"
+label_settings = SubResource("LabelSettings_uq3bu")
+
+[node name="PlayButton" type="Button" parent="MainMenuCanvas/MainMenuControl/MainMenuOptions" unique_id=2092087973]
+custom_minimum_size = Vector2(250, 100)
+layout_mode = 2
+text = "Play"
+
+[node name="ControlsButton" type="Button" parent="MainMenuCanvas/MainMenuControl/MainMenuOptions" unique_id=865709872]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+text = "Controls"
+
+[node name="Controls" parent="MainMenuCanvas" unique_id=267622311 instance=ExtResource("2_xd0fx")]
+
+[connection signal="pressed" from="MainMenuCanvas/MainMenuControl/MainMenuOptions/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/MainMenuControl/MainMenuOptions/ControlsButton" to="." method="_on_controls_button_pressed"]

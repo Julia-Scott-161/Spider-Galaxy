@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dxjxkvexcfjvi"]
+
+[ext_resource type="Script" uid="uid://dcms728ocrrt" path="res://main_game_scene/MainGameScene.gd" id="1_finog"]
+[ext_resource type="PackedScene" uid="uid://b7w0d0p04enqm" path="res://main_menu_scene/MainMenu.tscn" id="2_lhira"]
+
+[node name="MainGameScene" type="Node3D" unique_id=1991283748]
+script = ExtResource("1_finog")
+
+[node name="MainMenu" parent="." unique_id=1307353137 instance=ExtResource("2_lhira")]
+process_mode = 3

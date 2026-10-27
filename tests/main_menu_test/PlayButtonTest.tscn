@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cvx2ef1ejjoqu"]
+
+[ext_resource type="Script" uid="uid://bpiuobbwsonsn" path="res://tests/main_menu_test/PlayButtonTest.gd" id="1_qbbav"]
+[ext_resource type="PackedScene" uid="uid://dxjxkvexcfjvi" path="res://main_game_scene/MainGameScene.tscn" id="2_qbbav"]
+
+[node name="PlayButtonTest" type="Node2D" unique_id=29133743]
+script = ExtResource("1_qbbav")
+
+[node name="MainGameScene" parent="." unique_id=1991283748 instance=ExtResource("2_qbbav")]

@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://bs5w1kpil0ufb"]
+
+[ext_resource type="PackedScene" uid="uid://c5cgeaehdwc4w" path="res://Player/Spider.tscn" id="1_60xi6"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_on4s3"]
+size = Vector3(101.9082, 1, 104.08548)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i8a26"]
+size = Vector3(101.82788, 1, 103.41559)
+
+[sub_resource type="BoxMesh" id="BoxMesh_tytjn"]
+size = Vector3(3.2627563, 1.8305054, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_p8xt5"]
+size = Vector3(3.2294922, 1.7033691, 0.9819336)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_owoua"]
+size = Vector3(3.2198486, 1.7728882, 1)
+
+[node name="MovementWithFixedCamera" type="Node3D" unique_id=1345076245]
+
+[node name="PlayerWithCamera" parent="." unique_id=71677976 instance=ExtResource("1_60xi6")]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=653382991]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1720991435]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+
+[node name="FloorStructure" type="MeshInstance3D" parent="Floor" unique_id=736650441]
+mesh = SubResource("BoxMesh_on4s3")
+
+[node name="FloorCollision" type="CollisionShape3D" parent="Floor" unique_id=443695851]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07165527, 0, 0.32357788)
+shape = SubResource("BoxShape3D_i8a26")
+
+[node name="ClimbingCubes" type="StaticBody3D" parent="." unique_id=154903880]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+
+[node name="CubeOnFloor" type="MeshInstance3D" parent="ClimbingCubes" unique_id=328522291]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -20.054815, 4.1724286, 0)
+mesh = SubResource("BoxMesh_tytjn")
+
+[node name="FloorCubeCollision" type="CollisionShape3D" parent="ClimbingCubes" unique_id=1804530406]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, -20.047491, 4.2265058, 0.036132813)
+shape = SubResource("BoxShape3D_p8xt5")
+
+[node name="CubeInAir" type="MeshInstance3D" parent="ClimbingCubes" unique_id=1843738257]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -60.181095, -2.5418859, 0)
+mesh = SubResource("BoxMesh_tytjn")
+
+[node name="AirCubeCollision" type="CollisionShape3D" parent="ClimbingCubes" unique_id=887715943]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -60.182987, -2.5231786, 0)
+shape = SubResource("BoxShape3D_owoua")
